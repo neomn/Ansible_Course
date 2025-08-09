@@ -83,4 +83,31 @@
 ### lab tasks
 
 
+<br>
+<br>
+<br>
+### ----------------------------------------------------------------------
+
+## session 2
+
+### what is ansible: 
+#### almost any work that is done manually on a system cloud be done using ansible
+#### but what is our goal of using ansible 
+
+
+### running some Ah-Hoc command will explain why we do need an inventory file  
+
+### different formats of inventory file 
+
+### create an ini inventory file 
+#### what factors must be considered while building inventory file
+
+### validate inventory file 
+
+### Ah-Hoc commands 
+
+   
+
+### lab tasks 
+
 
