@@ -1,0 +1,12 @@
+
+services:
+
+  ansible-course:
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    container_name: ansible-course
+    tty: true
+    volumes: 
+      - ./ansible:/ansible
+      - ./files:/files
