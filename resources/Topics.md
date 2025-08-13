@@ -86,6 +86,7 @@
 <br>
 <br>
 <br>
+
 ### ----------------------------------------------------------------------
 
 ## session 2
@@ -110,4 +111,31 @@
 
 ### lab tasks 
 
+<br>
+<br>
+<br>
 
+### -------------------------------------------------------------------------------
+
+## session 3
+
+### 1- previous sessions recap and answer any potential question 
+   * how to install ansible and/or use ansible
+      - using OS package managers
+      - using pip or pipx (python package manager)
+      - using docker 
+   * answer any potential question 
+
+<br>
+
+### 2- playbooks 
+   * what is a playbook
+      - where we utilize modules and tasks to achive a goal
+      - playbook runs like procetural(line by line)
+   * write fist playbook and setup ssh connection 
+      - as a best practice the first step in utilizing ansible is to setup ssh connection
+      - create ansible user 
+      - create .ssh directory for ansible user 
+      - add ansible user to sudoers 
+### 3- project structure with docker and docker compose 
+### 4- project for next session 
