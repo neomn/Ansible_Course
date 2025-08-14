@@ -131,11 +131,32 @@
 ### 2- playbooks 
    * what is a playbook
       - where we utilize modules and tasks to achive a goal
-      - playbook runs like procetural(line by line)
+      - playbook runs like procedural(line by line)
    * write fist playbook and setup ssh connection 
       - as a best practice the first step in utilizing ansible is to setup ssh connection
       - create ansible user 
       - create .ssh directory for ansible user 
       - add ansible user to sudoers 
+
+<br>
+
 ### 3- project structure with docker and docker compose 
-### 4- project for next session 
+   * benefits of using docker for ansible 
+   * explain different directories 
+   * how to run and use ansible inside the container (specific to this structure)
+
+<br>
+
+### 4- project for the Lab or next session 
+   * create your own branch 
+   * download files.zip uploaded on Talk app, place it inside desired path and unzip it
+   * build and run the container in background 
+   * create a playbook including these tasks : 
+      - disable fact gathering 
+      - ping all nodes 
+      - create a user with your name having a home directory
+      - create .ssh directory for your user 
+      - add your user to sudoers 
+      - inside the /root directory create a text file with your name
+      - write this text line into the created file: "Hi from $(your name)"
+   * push your branch into the repo
