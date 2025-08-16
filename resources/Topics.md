@@ -160,3 +160,80 @@
       - inside the /root directory create a text file with your name
       - write this text line into the created file: "Hi from $(your name)"
    * push your branch into the repo
+
+<br>
+<br>
+
+### 5- trainings
+
+   * File & Directory Operations
+      - Create a file at /tmp/hello.txt
+      - Ensure a directory /opt/myapp exists
+      - Delete a file /tmp/delete_me.txt
+      - Change permissions of /var/log/messages to 0644
+      - Change ownership of /opt/myapp to user ansible
+      - Create a symbolic link /tmp/link pointing to /etc/hosts
+      - Create a file with specific content using copy
+      - Backup a file before modifying it with copy
+      - Set file attributes (e.g., immutable) on /etc/passwd
+      - Remove a directory recursively
+
+   <br>
+   <br>
+
+   * 📦 Package Management
+      - Install nginx using yum (or apt)
+      - Remove the telnet package
+      - Upgrade all packages
+      - Check if curl is installed (using package module)
+      - Reinstall a package (e.g., vim)
+      - Install multiple packages: git, htop, wget
+      - Lock a package version (where supported)
+      - Clean package manager cache (e.g., yum clean all)
+      - List installed packages (using command)
+      - Show available updates (using command)
+
+   <br>
+   <br>
+
+   * 🖥️ Service Management
+      - Start nginx service
+      - Stop firewalld service
+      - Restart sshd
+      - Enable nginx to start at boot
+      - Disable cups service
+      - Check service status using service_facts
+      - Reload a service (e.g., systemctl reload nginx)
+      - Mask a service to prevent it from starting
+      - Unmask a previously masked service
+      - List all running services (using command)
+
+   <br>
+   <br>
+
+   * 👤 User & Group Management
+      - Create a user deploy
+      - Delete user guest
+      - Add user ansible to group wheel
+      - Create a group developers
+      - Set user password (using hashed password)
+      - Expire a user account
+      - Lock a user account
+      - Unlock a user account
+      - Set user shell to /bin/bash
+      - Set user’s home directory
+
+   <br>
+   <br>
+
+   * 🌐 Networking Tasks
+      - Add a line to /etc/hosts
+      - Remove a line from /etc/hosts
+      - Ensure /etc/resolv.conf contains a specific nameserver
+      - Download a file using get_url
+      - Test internet connectivity with ping
+      - Show current IP using ip a (via command)
+      - Restart network service
+      - List active ports (using ss -tuln)
+      - Set static IP (file-based edit with lineinfile)
+      - Run curl to fetch a webpage and register the output
