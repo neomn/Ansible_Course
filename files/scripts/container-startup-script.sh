@@ -1,6 +1,6 @@
 #!/bin/sh
 eval $(ssh-agent)
-ssh-add /files/.secrets/ansible-course
+ssh-add /files/.secrets/ansible-course-ssh-key
 export ANSIBLE_CONFIG=/ansible/ansible.cfg
 export $(grep -v '^#' /files/.secrets/credentials.txt |xargs)
 fish -c "echo run a fish command to create fish config directory"
