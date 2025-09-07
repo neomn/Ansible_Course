@@ -1,0 +1,33 @@
+
+- name: working with files and idrectories 
+  hosts: all 
+  tasks: 
+
+  - name: create a directory 
+    file: 
+      path: /tmp/mydir
+      state: directory 
+
+  - name: create a file in recently created directory 
+    file: 
+      path: /tmp/mydir/myfile.txt
+      state: touch 
+
+
+  - name: writing my own name into the created file 
+    lineinfile: 
+      path: /tmp/mydir/myfile.txt
+      line: "hi, my name is m-nik"
+
+
+- name: working with os-package-manager 
+  hosts: all 
+  become: yes 
+  gather_facts: false
+  tasks: 
+    
+  - name: install ranger 
+    apt: 
+      name: ranger 
+      update_cache: true
+
