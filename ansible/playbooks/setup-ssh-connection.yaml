@@ -2,30 +2,5 @@
   hosts: all 
   become: yes 
   gather_facts: false
-  tasks: 
-
-  - name: create ansible user 
-    user: 
-      name: ansible 
-      state: present 
-      home: /home/ansible 
-      create_home: true 
-
-  - name: create .ssh directory for ansible 
-    file: 
-      state: directory 
-      path: /home/ansible/.ssh 
-
-  - name: add pub key to ansible user 
-    authorized_key: 
-      user: ansible 
-      state: present 
-      key: "{{ lookup('file', '../../files/.secrets/ansible.pub')}}"
-
-  - name: add ansile user to sudoers 
-    copy: 
-      src: ../../files/ansible-sudoer
-      dest: /etc/sudoers.d/
-      owner: root 
-      group: root
-      mode: 0400 
+  roles: 
+    - setup-ssh-connection
