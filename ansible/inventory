@@ -1,13 +1,15 @@
 
-node1    ansible_host=37.152.181.90      ansible_user=ansible     
+node1    ansible_host=37.152.181.90      ansible_user=ansible    
 node2    ansible_host=185.206.95.155     ansible_user=ansible      
-node3    ansible_host=37.152.183.182     ansible_user=ansible     
+node3    ansible_host=37.152.183.182     ansible_user=ansible    
+node4    ansible_host=37.152.179.84      ansible_user=ansible 
 
 
 [tehran]
 node1
 node2
+node3
 
 
 [shiraz]
-node3
+node4 

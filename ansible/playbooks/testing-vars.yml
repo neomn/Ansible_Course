@@ -1,0 +1,31 @@
+
+- name: playing with vars
+  hosts: all 
+  ignore_errors: yes
+  vars: 
+    app_port: 443 
+  tasks: 
+
+    - name: running app 1
+      debug: 
+        msg: "running app1 on port {{ app_port }}"
+
+    - name: running app 2
+      debug: 
+        msg: "running app2 on port {{ app_port }}"
+
+    - name: running app 3
+      debug: 
+        msg: "running app3 on port {{ app_port }}"
+
+    - name: running app 4
+      debug: 
+        msg: "running app4 on port {{ app_port }}"
+
+    - name: running app 5
+      debug: 
+        msg: "running app5 on port {{ app_port }}"
+
+    - name: running app 6
+      debug: 
+        msg: "running app6 on port {{ app_port }}"                                        
