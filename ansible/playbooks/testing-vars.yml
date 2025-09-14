@@ -1,31 +1,14 @@
 
 - name: playing with vars
   hosts: all 
+  gather_facts: false
   ignore_errors: yes
-  vars: 
-    app_port: 443 
+  vars_prompt:
+    - name: somevar
+      prompt: 'enter value'
+      private: no
   tasks: 
 
-    - name: running app 1
+    - name: testing ansible facts
       debug: 
-        msg: "running app1 on port {{ app_port }}"
-
-    - name: running app 2
-      debug: 
-        msg: "running app2 on port {{ app_port }}"
-
-    - name: running app 3
-      debug: 
-        msg: "running app3 on port {{ app_port }}"
-
-    - name: running app 4
-      debug: 
-        msg: "running app4 on port {{ app_port }}"
-
-    - name: running app 5
-      debug: 
-        msg: "running app5 on port {{ app_port }}"
-
-    - name: running app 6
-      debug: 
-        msg: "running app6 on port {{ app_port }}"                                        
+        msg: "{{ansible_facts}}"
