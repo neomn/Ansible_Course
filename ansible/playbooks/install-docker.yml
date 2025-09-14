@@ -1,0 +1,6 @@
+
+- name: install docker 
+  hosts: aeza
+  become: yes 
+  roles: 
+    - install-docker 
