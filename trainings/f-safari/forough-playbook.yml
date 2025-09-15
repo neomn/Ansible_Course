@@ -1,0 +1,44 @@
+- name: working with os-package-manager
+  hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+
+  - name: Remove problematic repositories temporarily
+    block:
+      - name: Backup and remove docker.list
+        copy:
+          src: /etc/apt/sources.list.d/docker.list
+          dest: /etc/apt/sources.list.d/docker.list.backup
+          remote_src: yes
+        ignore_errors: yes
+
+      - name: Backup and remove kubernetes.list  
+        copy:
+          src: /etc/apt/sources.list.d/kubernetes.list
+          dest: /etc/apt/sources.list.d/kubernetes.list.backup
+          remote_src: yes
+        ignore_errors: yes
+
+      - name: Remove the files
+        file:
+          path: "{{ item }}"
+          state: absent
+        loop:
+          - /etc/apt/sources.list.d/docker.list
+          - /etc/apt/sources.list.d/kubernetes.list
+        ignore_errors: yes
+    rescue:
+      - name: Continue even if cleanup fails
+        debug:
+          msg: "Repository cleanup partially failed, continuing..."
+
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+    ignore_errors: yes
+
+  - name: install ranger
+    apt:
+      name: ranger
+      state: present
