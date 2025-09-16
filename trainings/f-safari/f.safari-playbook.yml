@@ -1,0 +1,35 @@
+
+- name: working with files and drectories 
+  hosts: all 
+  tasks: 
+
+  - name: create a directory 
+    file: 
+      path: /home/anisa/forough
+      state: directory 
+
+  - name: create a file in recently created directory 
+    file: 
+      path: /home/anisa/forough/myname.txt
+      state: touch 
+
+
+
+  - name: writing my name 
+    lineinfile: 
+      path: /home/anisa/forough/myname.txt
+      line: "hi, my name is forough safari"
+
+
+- name: working with os-package-manager 
+  hosts: all 
+  become: yes 
+  gather_facts: false
+  tasks: 
+    
+  - name: install ranger 
+    apt: 
+      name: ranger 
+      state: present
+      update_cache: true
+
