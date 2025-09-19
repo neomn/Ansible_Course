@@ -27,8 +27,12 @@
 
 - name: modify ssh configs
   template: 
-    src: ../templates/sshd_config.js
+    src: ../templates/sshd_config.j2
     dest: /etc/ssh/sshd_config
     owner: root
     group: root
     mode: 0440 
+  notify: restart_ssh_service
+
+
+
