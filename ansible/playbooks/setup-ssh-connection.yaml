@@ -1,6 +1,6 @@
 - name: setup ssh connection 
   hosts: all 
   become: yes 
-  gather_facts: false
+  gather_facts: true 
   roles: 
     - setup-ssh-connection

@@ -6,11 +6,6 @@
     home: /home/ansible 
     create_home: true 
 
-- name: create .ssh directory for ansible 
-  file: 
-    state: directory 
-    path: /home/ansible/.ssh 
-
 - name: add pub key to ansible user 
   authorized_key: 
     user: ansible 
@@ -25,14 +20,43 @@
     group: root
     mode: 0400 
 
-- name: modify ssh configs
-  template: 
-    src: ../templates/sshd_config.j2
-    dest: /etc/ssh/sshd_config
-    owner: root
-    group: root
-    mode: 0440 
-  notify: restart_ssh_service
+- block: 
+  - name: disable ssh socket on ubuntu 
+    systemd: 
+      name: ssh.socket
+      state: stopped 
+      enabled: false 
+      masked: true 
+
+  - name: modify ssh configs
+    vars: 
+      subsystem_path: "/usr/lib/openssh/sftp-server"
+    template: 
+      src: ../templates/sshd_config.j2
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0440 
+    notify: restart_ssh_service_ubuntu
+  when: ansible_distribution == "Ubuntu"
 
 
+- block: 
+  - name: add custom ssh port to selinux 
+    seport: 
+      ports: "{{ custom_ssh_port }}"
+      proto: tcp
+      setype: ssh_port_t
+      state: present
 
+  - name: modify ssh configs
+    vars: 
+      subsystem_path: "/usr/libexec/openssh/sftp-server"
+    template: 
+      src: ../templates/sshd_config.j2
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0440 
+    notify: restart_ssh_service_fedora
+  when: ansible_distribution == "Fedora"
