@@ -1,0 +1,4 @@
+
+custom_ssh_port: 22322
+permit_root_login: "no"
+password_authentication: "no"

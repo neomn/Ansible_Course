@@ -1,0 +1,10 @@
+
+- hosts: node2 
+  become: true 
+  roles:
+  - role: grafana.grafana.grafana
+    vars:
+      grafana_ini:
+        security:
+          admin_user: admin
+          admin_password: "@SomeSecurePass123"
