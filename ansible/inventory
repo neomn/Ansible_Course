@@ -1,19 +1,16 @@
 
-node1    ansible_host=185.204.171.130        ansible_user=ansible      ansible_port=22322
-node2    ansible_host=77.110.97.3            ansible_user=ansible      ansible_port=22322
-node3    ansible_host=185.204.169.192        ansible_user=ansible      ansible_port=22322
+node1    ansible_host=77.110.97.3            ansible_user=ansible     ansible_port=22334
+node2    ansible_host=185.204.168.100        ansible_user=ansible     ansible_port=22334
 
 
 [ubuntu]
 node1
-node2
 
 [fedora]
-node3 
+node2
 
 [arvan]
-node1
-node3
+node2
 
 [aeza]
-node2 
+node1 

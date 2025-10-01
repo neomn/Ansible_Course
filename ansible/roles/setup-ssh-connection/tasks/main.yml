@@ -21,12 +21,12 @@
     mode: 0400 
 
 - block: 
-  - name: disable ssh socket on ubuntu 
-    systemd: 
-      name: ssh.socket
-      state: stopped 
-      enabled: false 
-      masked: false 
+  # - name: disable ssh socket on ubuntu 
+  #   systemd: 
+  #     name: ssh.socket
+  #     state: stopped 
+  #     enabled: false 
+  #     masked: false 
 
   - name: modify ssh configs
     vars: 
