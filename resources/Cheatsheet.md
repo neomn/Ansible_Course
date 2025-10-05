@@ -135,3 +135,40 @@ ad hoc commands are great for tasks you repeat rarely. For example, if you want 
 #### clone a public git repository 
     ansible all -m git -a "repo=https://github.com/ansible/ansible.git dest=/tmp/ansible clone=yes"
 
+
+# ------------------------------------------
+# Debugging: 
+
+## ansible_debug vs Verbosity
+
+
+## Ansible Debug
+### export ANSIBLE_DEBUG=1
+Enables internal Ansible code debugging<br>
+Shows Python-level debug information<br>
+Displays Ansible's internal operations and logic<br>
+Prints stack traces and internal function calls<br>
+Shows configuration loading, plugin discovery, etc.<br>
+
+## Verbosity
+Controls playbook execution output detail<br>
+Shows what's happening during task execution<br>
+Displays module output, parameters, and results<br>
+Shows connection and command execution details<br>
+
+### Level 1 - Basic verbose
+ansible-playbook deploy.yml -v
+
+### Level 2 - More details
+ansible-playbook deploy.yml -vv
+
+### Level 3 - Connection debugging
+ansible-playbook deploy.yml -vvv
+
+### Level 4 - Maximum verbosity
+ansible-playbook deploy.yml -vvvv
+
+<br>
+<br>
+
+##  
